@@ -6,7 +6,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
   echo Cleaning up previous environment. Please wait...
   cd ~/Desktop/devlabs/sentimentAnalysisLab
-  amplify delete
+  yes | amplify delete
   rm -rf ~/Desktop/devlabs/sentimentAnalysisLab
   echo Done cleaning up
 END
