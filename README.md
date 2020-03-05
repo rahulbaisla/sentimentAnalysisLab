@@ -15,12 +15,20 @@ Install the AWS Amplify CLI:
 npm install -g @aws-amplify/cli
 ```
 
-## Clone the UI from GitHub
+## Clone the UI from GitHub and Install dependencies
 
 ```bash
-mkdir devlabs
-cd devlabs
-git clone hhttps://github.com/rahulbaisla/sentimentAnalysisLab.git
+Run following scripts provided to automate the project and installing dependencies:
+sh cleanup.sh
+sh setup.sh
+```
+
+OR 
+
+```bash
+mkdir ~/Desktop/devlabs
+cd ~/Desktop/devlabs
+git clone https://github.com/rahulbaisla/sentimentAnalysisLab.git
 cd sentimentAnalysisLab
 npm install
 ```
@@ -28,6 +36,7 @@ npm install
 ## Initialize Amplify
 
 ```bash
+cd ~/Desktop/devlabs/sentimentAnalysisLab
 amplify init
 ```
 
@@ -36,6 +45,7 @@ amplify init
 `Enter a name for the environment:` **dev**
 
 `Choose your default editor:` **Visual Studio Code**
+
 `Choose the type of app that you're building:` **javascript**
  
 `What javascript framework are you using:` **react**
@@ -85,6 +95,7 @@ How do you want users to be able to sign in?` **Username**
 ## Add Speech-To-Text Functionality
 
 `amplify add Predictions`
+
 `Please select from one of the categories below:` **Interpret**
 
 `What would you like to interpret Interpret:` **Text**
@@ -116,15 +127,21 @@ Are you sure you want to continue? Yes
 
 ## Test the Application
 
-1. Create an user account
+1. 
+```
+In your project directory ~/Desktop/devlabs/sentimentAnalysisLab run following command
+npm run start
+```
+
+2. Create an user account
    ![alt text](https://github.com/rahulbaisla/sentimentAnalysisLab/tree/master/images/SignUp.png "Sign Up")
 
 
-2. Sign-in to the Application
+3. Sign-in to the Application
 
     ![alt text](https://github.com/rahulbaisla/sentimentAnalysisLab/tree/master/images/SignIn.png "Sign In")
 
-3. Start Recording and speak some text. Once finished stop the recording. 
+4. Start Recording and speak some text. Once finished stop the recording. 
    
    ![alt text](https://github.com/rahulbaisla/sentimentAnalysisLab/tree/master/images/Dashboard.png "App Dashboard")
 
