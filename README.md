@@ -134,16 +134,16 @@ npm run start
 ```
 
 2. Create an user account
-   ![alt text](https://github.com/rahulbaisla/sentimentAnalysisLab/tree/master/images/SignUp.png "Sign Up")
+   ![](images/SignUp.png)
 
 
 3. Sign-in to the Application
 
-    ![alt text](https://github.com/rahulbaisla/sentimentAnalysisLab/tree/master/images/SignIn.png "Sign In")
+    ![](images/SignIn.png "Sign In")
 
 4. Start Recording and speak some text. Once finished stop the recording. 
    
-   ![alt text](https://github.com/rahulbaisla/sentimentAnalysisLab/tree/master/images/Dashboard.png "App Dashboard")
+   ![](images/Dashboard.png "App Dashboard")
 
 The audio will be converted into text using Amazon Transcribe Service and the converted text will be interpreted to perform sentiment analysis using Amazon Comprehend Service.
 
