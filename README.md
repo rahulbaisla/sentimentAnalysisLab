@@ -6,14 +6,42 @@ In this workshop we will demonstrate how to add the AI and ML cloud service feat
 2. **Amazon Transcribe** - Adds speech-to-text capability
 3. **Amazon Comprehend** -  Uses ML to find insights and relationships in text.
 
+The above mentioned are a subset of services that can be added using AWS Amplify. Apart from these, You can provision, attach and use AWS AppSync(GraphQL API), API Gateway (REST API), Amazon S3(Storage), AWS Lambda (Functions), Amazon Pinpoint (Analytics), Amazon Lex (Interactions/Chatbots) etc to your application using AWS Amplify.
 
 # Install the Amplify CLI 
 
-Install the AWS Amplify CLI:
+Install the AWS Amplify CLI. Please use Amplify CLI version 4.10.0 and above for this lab
 
 ```bash
 npm install -g @aws-amplify/cli
 ```
+
+**Note:** If you're having permission issues on your system installing the CLI, please try the following command:
+
+```bash
+sudo npm install -g @aws-amplify/cli --unsafe-perm=true
+```
+
+If you already have Amplify CLI installed and you can upgrade to latest using the following command
+
+```
+npm install -g @aws-amplify/cli@latest
+```
+
+# Configure Amplify
+
+Amplify CLI uses the creds of an configured AWS IAM user to provision the resources in AWS Cloud. If you already not have credentials of an IAM user with AdministratorAccess use the below command to create an IAM user and configure Amplify. Below command will ask for inputs and navigate you to AWS IAM to create the user and configure Amplify to use it. 
+
+
+```
+amplify configure
+```
+
+If you already have an AWS IAM user set up for AWS CLI, You can configure the Amplify CLI to assume an IAM role by defining a profile for the role in the shared **~/.aws/config** file
+
+
+**Note:** For this Lab we will use an IAM user with AdministratorAccess to minimize the complexity of lab. However, you can at anytime modify and use the following [IAM policy](https://aws-amplify.github.io/docs/cli-toolchain/usage#iam-policy-for-the-cli) to grant granular access to the IAM user.
+
 
 ## Clone the UI from GitHub and Install dependencies
 
@@ -67,6 +95,7 @@ The AWS Amplify CLI will initialize a new project inside your React project & yo
 
 ## Add Authentication to the Web Application
 
+Amplify CLI provisions [Amazon Cognito](https://aws.amazon.com/cognito/) as backend to provide authN/authZ support for your application. Below command and selected options will create a cloudformation template to provision the Amazon Cognito resource locally under PROJECT_ROOT_DIR/amplify/auth/NAME_OF_COGNITO_RESOURCE folder
 
 `amplify add auth`
 `Do you want to use the default authentication and security configuration?` **Default configuration**
@@ -76,7 +105,9 @@ How do you want users to be able to sign in?` **Username**
 
 `Do you want to configure advanced settings?` **No, I am done.**
 
-## Add Speech-To-Text Functionality
+## Add functionality to Transcribe text from audio
+
+Amplify CLI provisions [Amazon Transcribe](https://aws.amazon.com/transcribe/) as backend to add speech-to-text functionality to your application. Below command and options will create a cloudformation template to provision the the Amazon Transcribe resource locally in your project under PROJECT_ROOT_DIR/amplify/predictions/NAME_OF_CONVERT_RESOURCE folder.
 
 `amplify add Predictions`
 
@@ -92,7 +123,9 @@ How do you want users to be able to sign in?` **Username**
 
 
 
-## Add Speech-To-Text Functionality
+## Add functionality to Interpret the text
+
+Amplify CLI provisions [Amazon Comprehend](https://aws.amazon.com/comprehend/) a natural language processing (NLP) service as backend to provide ability to interpret text and perform sentiment analysis. No machine learning experience is required for this feature. Below command and options will create a cloudformation template to provision the Amazon Comprehend resource locally in your project under PROJECT_ROOT_DIR/amplify/predictions/NAME_OF_INTERPRET_RESOURCE folder.
 
 `amplify add Predictions`
 
@@ -124,6 +157,7 @@ Current Environment: dev
 Are you sure you want to continue? Yes
 ```
 
+**Note:** Amplify CLI uses AWS CloudFormation as default provider to manage the backend attached to the application. Sometimes it can take additional time to create the AWS resources. In order to confirm the status of the Cloud Formation stack  and resources being created, login to AWS Console -> CloudFormation and locate the stack being deployed for your app. 
 
 ## Test the Application
 
@@ -150,15 +184,30 @@ The audio will be converted into text using Amazon Transcribe Service and the co
 
 ## Understanding the code
 
-Imports 
+Importing Amplify into your Front-end application.
+
+**How it Works:** Amplify supports configuration of your connected AWS resources through a centralized file called aws-exports.js which defines all the regions and service endpoints to communicate. Whenever you run amplify push, this file is automatically created allowing you to focus on your application code. The Amplify CLI will place this file in the appropriate source directory configured with amplify init.
+
 ```
 import Amplify, { Predictions } from 'aws-amplify';
 import { AmazonAIPredictionsProvider } from '@aws-amplify/predictions';
 import { withAuthenticator, AmplifyTheme} from 'aws-amplify-react';
-import awsconfig from './aws-exports';
+import awsconfig from './aws-exports'; //aws-exports
 ```
 
-Convert recorder audio to text and performing sentiment analysis on text  
+
+It’s recommended to add the Amplify configuration step to your app’s root entry point. In case of React it would be App.js.
+
+```
+Amplify.configure(awsconfig);
+
+Amplify.addPluggable(new AmazonAIPredictionsProvider());
+```
+
+Alternatively, You can also manually specify your existing Amazon AI and ML resources in your app using [Manual Setup] (https://aws-amplify.github.io/docs/js/predictions#manual-setup)
+
+
+Convert recorder audio to text and performing sentiment analysis on text  using Predictions 
 ```
 function convertFromBuffer(bytes) {
     setResponse('Performing Sentiment Analysis...');
@@ -173,7 +222,10 @@ function convertFromBuffer(bytes) {
       }).then(({ transcription: { fullText } }) => {interpretFromPredictions(JSON.stringify(fullText, null, 2))})
         .catch(err => console.log(JSON.stringify(err, null, 2)))   
   }
+```
 
+Performing sentiment analysis on text using Predictions 
+```
   function interpretFromPredictions(textToInterpret) {
     console.log("inside interpretFromPredictions")
     Predictions.interpret({
@@ -187,3 +239,32 @@ function convertFromBuffer(bytes) {
       .catch(err => setResponse(JSON.stringify(err, null, 2)))
   }
 ```
+
+## Host your web application using the AWS Amplify Console
+
+    AWS also provides a CI/CD solution named [Amplify Console](https://aws.amazon.com/amplify/console/getting-started/) for single page web applications that follows a git-based workflow to deploy and host fullstack serverless web applications which can include frontend and backend both. Using Amplify Console to host your app can accelerate the release cycle of your product by providing a simple workflow for deploying full-stack serverless applications. Here are few [Fullstack serverless example projects](https://aws.amazon.com/amplify/console/getting-started/) to start with.
+
+
+## Recap
+
+In a few minutes you were able to create a Sentiment Analysis application from scratch with:
+
+A scalable serverless back-end:
+
+    Amazon Cognito - Fully managed authN/authZ service 
+    Amazon Transcribe - Functionality to convert speech-to-text
+    Amazon Comprehend - Natural language processing (NLP) service that uses machine learning to find insights and relationships in text.
+
+A browser-based React front-end:
+
+    Use case-centric open source libraries that require minimal code to use for invoking the APIs and connect to backend resources.
+
+Overall, Developers can focus on the business logic and use AWS Amplify to provision and manage the backend services for your app.
+
+## Further reading on AWS Amplify
+
+    AWS Amplify framework: https://aws-amplify.github.io/
+    AWS Amplify product page: https://aws.amazon.com/amplify/
+    AWS Amplify GitHub: https://github.com/aws-amplify
+    AWS Amplify Community: https://amplify.aws/community/posts
+    AWS Amplify Lobby: https://gitter.im/AWS-Amplify/Lobby
