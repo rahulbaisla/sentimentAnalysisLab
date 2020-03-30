@@ -206,8 +206,7 @@ Amplify.addPluggable(new AmazonAIPredictionsProvider());
 
 Alternatively, You can also manually specify your existing Amazon AI and ML resources in your app using [Manual Setup](https://aws-amplify.github.io/docs/js/predictions#manual-setup)
 
-
-Convert recorder audio to text and performing sentiment analysis on text  using Predictions 
+Convert recorder audio to text Predictions.convert
 ```
 function convertFromBuffer(bytes) {
     setResponse('Performing Sentiment Analysis...');
@@ -224,7 +223,7 @@ function convertFromBuffer(bytes) {
   }
 ```
 
-Performing sentiment analysis on text using Predictions 
+Performing sentiment analysis on text using Predictions.interpret
 ```
   function interpretFromPredictions(textToInterpret) {
     console.log("inside interpretFromPredictions")
