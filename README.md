@@ -150,7 +150,7 @@ Current Environment: dev
 
 | Category    | Resource name                | Operation | Provider plugin   |
 | ----------- | ---------------------------- | --------- | ----------------- |
-| Auth        | sentimentanalysislab | Create    | awscloudformation |
+| Auth        | sentimentanalysislab         | Create    | awscloudformation |
 | Predictions | transcription                | Create    | awscloudformation |
 | Predictions | interpret                    | Create    | awscloudformation |
 
