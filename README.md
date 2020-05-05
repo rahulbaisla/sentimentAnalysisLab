@@ -13,65 +13,59 @@ In this workshop we will demonstrate how to add the AI and ML cloud service feat
 
 The above mentioned are a subset of services that can be added using AWS Amplify. Apart from these, You can provision, attach and use AWS AppSync(GraphQL API), API Gateway (REST API), Amazon S3(Storage), AWS Lambda (Functions), Amazon Pinpoint (Analytics), Amazon Lex (Interactions/Chatbots) etc to your application using AWS Amplify.
 
-# Install the Amplify CLI 
+# Setting Up the Lab Environment
 
-Install the AWS Amplify CLI. Please use Amplify CLI version 4.10.0 and above for this lab
+To run this lab, you will require an AWS account. You will be using a Cloud9, which is a web-based development environment that provides a terminal program running on a virtual machine that has the AWS CLI pre-installed and configured.
 
-```bash
-npm install -g @aws-amplify/cli
-```
+1. Login to your AWS Account.
 
-**Note:** If you're having permission issues on your system installing the CLI, please try the following command:
+2. From the Services menu, select Cloud9.
 
-```bash
-sudo npm install -g @aws-amplify/cli --unsafe-perm=true
-```
+	If you are prompted for a region, select the one closest to you.
 
-If you already have Amplify CLI installed and you can upgrade to latest using the following command
+	You will now create a Cloud9 environment.
 
-```
-npm install -g @aws-amplify/cli@latest
-```
+3. Click Create environment.
 
-# Configure Amplify
+4. For Name, enter: amplify-sentimentAnalysis-lab
 
-Amplify CLI uses the creds of an configured AWS IAM user to provision the resources in AWS Cloud. If you already not have credentials of an IAM user with AdministratorAccess use the below command to create an IAM user and configure Amplify. Below command will ask for inputs and navigate you to AWS IAM to create the user and configure Amplify to use it. 
+5. Click Next step twice, then click Create environment.
+
+	Cloud9 will take a few minutes to launch the environment. Once it is ready, continue to the next step.
+
+6. In the bash terminal at the bottom of the screen (showing ~/environment $), run the following commands:
+
+	```
+	region=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone | sed 's/\(.*\)[a-z]/\1/')
+	
+	cat <<END > ~/.aws/config
+	[default]
+	region=$region
+	END
+	
+	git clone https://github.com/rahulbaisla/sentimentAnalysisLab.git
+	```
 
 
-```
-amplify configure
-```
+7. Switch to projects root directory
+	
+	`cd sentimentAnalysisLab`
 
-If you already have an AWS IAM user set up for AWS CLI, You can configure the Amplify CLI to assume an IAM role by defining a profile for the role in the shared **~/.aws/config** file
+8. You will now install the AWS Amplify CLI.
 
+	`
+	npm install -g @aws-amplify/cli
+	`
 
-**Note:** For this Lab we will use an IAM user with AdministratorAccess to minimize the complexity of lab. However, you can at anytime modify and use the following [IAM policy](https://aws-amplify.github.io/docs/cli-toolchain/usage#iam-policy-for-the-cli) to grant granular access to the IAM user.
-
-
-## Clone the UI from GitHub and Install dependencies
-
-```bash
-Run following scripts provided to automate the project and installing dependencies:
-sh cleanup.sh
-sh setup.sh
-```
-
-OR 
-
-```bash
-mkdir ~/Desktop/devlabs
-cd ~/Desktop/devlabs
-git clone https://github.com/rahulbaisla/sentimentAnalysisLab.git
-cd sentimentAnalysisLab
-npm install
-```
 
 ## Initialize Amplify
 
-```bash
-cd ~/Desktop/devlabs/sentimentAnalysisLab
+
+Inside root directory of project run following command and provide the provided values to  set up Amplify project.
+
+`
 amplify init
-```
+`
 
 `Enter a name for the project:` **sentimentAnalysisLab**
 
@@ -264,6 +258,20 @@ A browser-based React front-end:
     Use case-centric open source libraries that require minimal code to use for invoking the APIs and connect to backend resources.
 
 Overall, Developers can focus on the business logic and use AWS Amplify to provision and manage the backend services for your app.
+
+## Clean Up
+
+Please follow these instructions to clean-up your account so that there will be no on-going charges for any services used.
+
+Run this command to remove resources that were created during the lab (Press Ctrl+C first to stop the running app):
+
+	amplify delete
+
+Return to the Cloud9 console by clicking AWS Cloud9 in the top left, then click Go To Your Dashboard.
+
+Delete the amplify-lab.
+
+	You will need to enter Delete to delete the environment.
 
 ## Further reading on AWS Amplify
 
