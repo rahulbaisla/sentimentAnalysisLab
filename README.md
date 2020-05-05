@@ -44,6 +44,8 @@ To run this lab, you will require an AWS account. You will be using a Cloud9, wh
 	END
 	
 	git clone https://github.com/rahulbaisla/sentimentAnalysisLab.git
+	
+	npm install
 	```
 
 
@@ -160,21 +162,35 @@ Are you sure you want to continue? Yes
 
 ## Test the Application
 
-1. 
+1. In your project directory run following command
 ```
-In your project directory ~/Desktop/devlabs/sentimentAnalysisLab run following command
-npm run start
+	npm run start
 ```
 
-2. Create an user account
+You should see something like this:
+
+```
+	You can now view voterocket in the browser.
+	
+	Local:            http://localhost:8080/
+	On Your Network:  http://172.31.40.28:8080/
+```
+
+2. In the Cloud9 **Preview** menu, click **Preview Running Application**.
+
+3. Click the 'popout' icon to open it in a new browser tab, as shown below:
+   ![](images/Cloud9Preview.png)
+
+
+4.  Create an user account
    ![](images/SignUp.png)
 
 
-3. Sign-in to the Application
+5. Sign-in to the Application
 
     ![](images/SignIn.png "Sign In")
 
-4. Start Recording and speak some text. Once finished stop the recording. 
+6. Start Recording and speak some text. Once finished stop the recording. 
    
    ![](images/Dashboard.png "App Dashboard")
 
