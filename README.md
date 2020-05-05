@@ -285,7 +285,7 @@ Run this command to remove resources that were created during the lab (Press Ctr
 
 Return to the Cloud9 console by clicking AWS Cloud9 in the top left, then click Go To Your Dashboard.
 
-Delete the amplify-lab.
+Delete the amplify-sentimentAnalysis-lab.
 
 	You will need to enter Delete to delete the environment.
 
