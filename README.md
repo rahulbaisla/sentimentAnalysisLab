@@ -1,3 +1,8 @@
+This lab is provided as part of [AWS Summit Online](https://aws.amazon.com/events/summits/online/)
+
+ℹ️ You will run this lab in your own AWS account. Please follow directions at the end of the lab to remove resources to minimize costs.
+  
+  
   # Dev Labs: Build a Sentiment Analysis App in minutes using Amplify Framework
 
 In this workshop we will demonstrate how to add the AI and ML cloud service feature to your web application with [React](https://reactjs.org/) and the [Amplify Framework](https://aws-amplify.github.io/). We will learn to integrate following 3 AWS Services in your web application in few minutes
