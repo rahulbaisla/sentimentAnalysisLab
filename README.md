@@ -170,7 +170,7 @@ Are you sure you want to continue? Yes
 You should see something like this:
 
 ```
-	You can now view voterocket in the browser.
+	You can now view sentimentAnalysisLab in the browser.
 	
 	Local:            http://localhost:8080/
 	On Your Network:  http://172.31.40.28:8080/
