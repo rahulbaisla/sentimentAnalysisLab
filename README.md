@@ -45,13 +45,16 @@ To run this lab, you will require an AWS account. You will be using a Cloud9, wh
 	
 	git clone https://github.com/rahulbaisla/sentimentAnalysisLab.git
 	
-	npm install
 	```
 
 
 7. Switch to projects root directory
 	
-	`cd sentimentAnalysisLab`
+	```
+	cd sentimentAnalysisLab
+	
+	npm install
+	```
 
 8. You will now install the AWS Amplify CLI.
 
