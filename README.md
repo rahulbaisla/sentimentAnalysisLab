@@ -1,6 +1,6 @@
 This lab is provided as part of [AWS Summit Online](https://aws.amazon.com/events/summits/online/), click [here](https://bit.ly/2yLtZqL) to explore the full list of hands-on labs.
 
-ℹ️ You will run this lab in your own AWS account. Please follow directions at the end of the lab to remove resources to minimize costs.
+ℹ️ You will run this lab in your own AWS account in **us-east-1** region. Please follow directions at the end of the lab to remove resources to minimize costs.
   
   
   # Dev Labs: Build a Sentiment Analysis App in minutes using Amplify Framework
@@ -209,7 +209,7 @@ Importing Amplify into your Front-end application.
 ```
 import Amplify, { Predictions } from 'aws-amplify';
 import { AmazonAIPredictionsProvider } from '@aws-amplify/predictions';
-import { withAuthenticator, AmplifyTheme} from 'aws-amplify-react';
+import { withAuthenticator } from "@aws-amplify/ui-react";
 import awsconfig from './aws-exports'; //aws-exports
 ```
 

@@ -4,7 +4,7 @@ import "./App.css";
 // Amplify 
 import Amplify, { Predictions } from "aws-amplify";
 import { AmazonAIPredictionsProvider } from "@aws-amplify/predictions";
-import { withAuthenticator, AmplifyTheme } from "aws-amplify-react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 import awsconfig from "./aws-exports";
 
 // Utilities
@@ -53,13 +53,13 @@ const useStyles = makeStyles(theme => ({
     height: "100%"
   },
   textContainer: {
-    display: "flex",
     padding: "5px 5px 5px 5px",
     border: "3px solid transparent",
     borderColor: "#ccc",
     width: "70%",
     height: "65%",
-    textAlign: "left"
+    textAlign: "left",
+    overflow:"auto"
   },
   chartStyle: {
     height: 250
