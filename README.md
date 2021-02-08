@@ -102,6 +102,7 @@ The AWS Amplify CLI will initialize a new project inside your React project & yo
 Amplify CLI provisions [Amazon Cognito](https://aws.amazon.com/cognito/) as backend to provide authN/authZ support for your application. Below command and selected options will create a cloudformation template to provision the Amazon Cognito resource locally under PROJECT_ROOT_DIR/amplify/auth/NAME_OF_COGNITO_RESOURCE folder
 
 `amplify add auth`
+
 `Do you want to use the default authentication and security configuration?` **Default configuration**
 
 `Warning: you will not be able to edit these selections. 
@@ -184,16 +185,17 @@ You should see something like this:
 3. Click the 'popout' icon to open it in a new browser tab, as shown below:
    ![](images/Cloud9Preview.png)
 
+4.  Application launched in new tab in browser
+   ![](images/Preview_in_Browser.png)
 
-4.  Create an user account
+5.  Create an user account
    ![](images/SignUp.png)
 
-
-5. Sign-in to the Application
+6. Sign-in to the Application
 
     ![](images/SignIn.png "Sign In")
 
-6. Start Recording and speak some text. Once finished stop the recording. 
+7. Start Recording and speak some text. Once finished stop the recording. 
    
    ![](images/Dashboard.png "App Dashboard")
 
