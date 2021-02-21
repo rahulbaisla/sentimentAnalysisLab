@@ -1,7 +1,6 @@
-This lab is provided as part of [AWS Summit Online](https://aws.amazon.com/events/summits/online/), click [here](https://bit.ly/2yLtZqL) to explore the full list of hands-on labs.
+This lab is provided as part of **[AWS Innovate AI/ML Edition](https://aws.amazon.com/events/aws-innovate/machine-learning/)**, click [here](https://github.com/phonghuule/aws-innovate-ai-ml) to explore the full list of hands-on labs.
+:information_source: You will run this lab in your own AWS account in **us-east-1**. Please follow directions at the end of the lab to remove resources to avoid future costs.
 
-ℹ️ You will run this lab in your own AWS account in **us-east-1** region. Please follow directions at the end of the lab to remove resources to minimize costs.
-  
   
   # Dev Labs: Build a Sentiment Analysis App in minutes using Amplify Framework
 
@@ -301,3 +300,7 @@ Delete the amplify-sentimentAnalysis-lab.
     AWS Amplify GitHub: https://github.com/aws-amplify
     AWS Amplify Community: https://amplify.aws/community/posts
     AWS Amplify Lobby: https://gitter.im/AWS-Amplify/Lobby
+    
+## Survey
+Please help us to provide your feedback [here](https://amazonmr.au1.qualtrics.com/jfe/form/SV_b7mXqfAaiIZUnn8?Session=Lab8).
+Participants who complete the surveys from AWS Innovate Online Conference - AI & Machine Learning Edition will receive a gift code for USD25 in AWS credits. AWS credits will be sent via email by 31 March, 2021.
