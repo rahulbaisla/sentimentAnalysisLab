@@ -31,8 +31,11 @@ To run this lab, you will require an AWS account. You will be using a Cloud9, wh
 4. For Name, enter: amplify-sentimentAnalysis-lab
 
 5. Click Next and choose following configuration
+
 Environment type : **Create a new EC2 instance for environment (direct access)**
+
 Instance type : **Other instance type -> t3.medium**
+
 Platform : **Amazon Linux 2 (recommended)**
 
 For rest of config use default values and click Next Step.
