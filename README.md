@@ -16,11 +16,13 @@ The above mentioned are a subset of services that can be added using AWS Amplify
 
 To run this lab, you will require an AWS account. You will be using a Cloud9, which is a web-based development environment that provides a terminal program running on a virtual machine that has the AWS CLI pre-installed and configured.
 
+
+
 1. Login to your AWS Account.
 
 2. From the Services menu, select Cloud9.
 
-	If you are prompted for a region, select the one closest to you.
+	If you are prompted for a region, select **us-east-1**.
 
 	You will now create a Cloud9 environment.
 
@@ -28,11 +30,17 @@ To run this lab, you will require an AWS account. You will be using a Cloud9, wh
 
 4. For Name, enter: amplify-sentimentAnalysis-lab
 
-5. Click Next step twice, then click Create environment.
+5. Click Next and choose following configuration
+Environment type : **Create a new EC2 instance for environment (direct access)**
+Instance type : **Other instance type -> t3.medium**
+Platform : **Amazon Linux 2 (recommended)**
 
-	Cloud9 will take a few minutes to launch the environment. Once it is ready, continue to the next step.
+For rest of config use default values and click Next Step.
 
-6. In the bash terminal at the bottom of the screen (showing ~/environment $), run the following commands:
+6. Finally select Create Environment button.
+ Cloud9 will take a few minutes to launch the environment. Once it is ready, continue to the next step.
+
+7. In the bash terminal at the bottom of the screen (showing ~/environment $), run the following commands:
 
 	```
 	region=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone | sed 's/\(.*\)[a-z]/\1/')
@@ -47,7 +55,7 @@ To run this lab, you will require an AWS account. You will be using a Cloud9, wh
 	```
 
 
-7. Switch to projects root directory
+8. Switch to projects root directory
 	
 	```
 	cd sentimentAnalysisLab
@@ -55,12 +63,15 @@ To run this lab, you will require an AWS account. You will be using a Cloud9, wh
 	npm install
 	```
 
-8. You will now install the AWS Amplify CLI.
+9. You will now install the AWS Amplify CLI.
 
 	`
 	npm install -g @aws-amplify/cli
 	`
 
+**IMPORTANT NOTE : If during any part of lab you may face issues related to no space left on device. Follow the instructions in below AWS Documentation to modify the storage volume.**
+
+[Resize an Amazon EBS volume used by an environment ](https://docs.aws.amazon.com/cloud9/latest/user-guide/move-environment.html#move-environment-resize)
 
 ## Initialize Amplify
 
