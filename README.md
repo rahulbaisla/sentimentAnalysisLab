@@ -1,8 +1,9 @@
-This lab is provided as part of **[AWS Innovate AI/ML Edition](https://aws.amazon.com/events/aws-innovate/machine-learning/)**, click [here](https://github.com/phonghuule/aws-innovate-ai-ml) to explore the full list of hands-on labs.
+This lab is provided as part of **[AWS Innovate Data Edition](https://aws.amazon.com/events/aws-innovate/data/)**
+Click [here](https://github.com/phonghuule/aws-innovate-data) to explore the full list of hands-on labs.
 :information_source: You will run this lab in your own AWS account in **us-east-1**. Please follow directions at the end of the lab to remove resources to avoid future costs.
 
   
-  # Dev Labs: Build a Sentiment Analysis App in minutes using Amplify Framework
+# Dev Labs: Build a Sentiment Analysis App in minutes using Amplify Framework
 
 In this workshop we will demonstrate how to add the AI and ML cloud service feature to your web application with [React](https://reactjs.org/) and the [Amplify Framework](https://aws-amplify.github.io/). We will learn to integrate following 3 AWS Services in your web application in few minutes
 
@@ -315,6 +316,5 @@ Delete the amplify-sentimentAnalysis-lab.
     AWS Amplify Community: https://amplify.aws/community/posts
     AWS Amplify Lobby: https://gitter.im/AWS-Amplify/Lobby
     
-## Survey
-Please help us to provide your feedback [here](https://amazonmr.au1.qualtrics.com/jfe/form/SV_b7mXqfAaiIZUnn8?Session=Lab8).
-Participants who complete the surveys from AWS Innovate Online Conference - AI & Machine Learning Edition will receive a gift code for USD25 in AWS credits. AWS credits will be sent via email by 31 March, 2021.
+## SurveySurvey:
+Please help us to provide your feedback [here](https://amazonmr.au1.qualtrics.com/jfe/form/SV_3a6rNirgLrWYRW6?Session=HOL02). Participants who complete the surveys from AWS Innovate Online Conference - Data Edition will receive a gift code for USD25 in AWS credits. AWS credits will be sent via email by 30 September, 2021.
