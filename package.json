@@ -15,7 +15,7 @@
     "react-dom": "^16.12.0",
     "react-gauge-chart": "^0.2.5",
     "react-json-pretty": "^2.2.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
